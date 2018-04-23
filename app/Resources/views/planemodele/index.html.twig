@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Planemodeles list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Model</th>
+                <th>Manufacturer</th>
+                <th>Cruisespeed</th>
+                <th>Planenbseats</th>
+                <th>Isavailable</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for planeModele in planeModeles %}
+            <tr>
+                <td><a href="{{ path('planemodele_show', { 'id': planeModele.id }) }}">{{ planeModele.id }}</a></td>
+                <td>{{ planeModele.model }}</td>
+                <td>{{ planeModele.manufacturer }}</td>
+                <td>{{ planeModele.cruiseSpeed }}</td>
+                <td>{{ planeModele.planeNbSeats }}</td>
+                <td>{% if planeModele.isAvailable %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('planemodele_show', { 'id': planeModele.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('planemodele_edit', { 'id': planeModele.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('planemodele_new') }}">Create a new planeModele</a>
+        </li>
+    </ul>
+{% endblock %}
