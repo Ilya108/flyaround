@@ -6,6 +6,7 @@ use AppBundle\Entity\Review;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 
@@ -27,7 +28,7 @@ class ReviewController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $reviews = $em->getRepository('AppBundle:User')->findAll();
+        $reviews = $em->getRepository('AppBundle:Review')->findAll();
 
         return $this->render('review/index.html.twig', array(
             'reviews' => $reviews,
@@ -40,13 +41,10 @@ class ReviewController extends Controller
      * @Route("/new", name="review_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction()
+    public function newAction(Request $request)
     {
-
-        return $this->render('review/new.html.twig');
-
-        /*$review = new Review();
-        $form = $this->createForm('AppBundle\Form\Review', $review);
+        $review = new Review();
+        $form = $this->createForm('AppBundle\Form\ReviewType', $review);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -55,13 +53,12 @@ class ReviewController extends Controller
             $em->flush();
 
             return $this->redirectToRoute('review_show', array('id' => $review->getId()));
-
+        }
 
         return $this->render('review/new.html.twig', array(
             'review' => $review,
             'form' => $form->createView(),
-        ));*/
-
+        ));
 
 
     }
