@@ -5,6 +5,7 @@
  * Date: 05/06/18
  * Time: 16:44
  */
+namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
