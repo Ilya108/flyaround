@@ -3,11 +3,18 @@
 {% block body %}
 <h1> New Review Form</h1>
     <div>
+        {{ form_start(form) }}
         {# renders all fields #}
         {{ form_widget(form) }}
-
+        <input type="submit" value="Create" />
         {# renders all fields *and* the form start and end tags #}
         {{ form(form) }}
+
+        <ul>
+            <li>
+                <a href="{{ path('review_index') }}">Back to the list</a>
+            </li>
+        </ul>
 
     </div>
 
