@@ -14,5 +14,9 @@
 !var/sessions/.gitkeep
 !var/SymfonyRequirements.php
 /vendor/
+.idea/flyaround.iml
+.idea/php.xml
 /web/bundles/
 /home/wilder/flyaround/node_modules
+Supprimerait assets/css/
+Supprimerait assets/images/
