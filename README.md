@@ -1,4 +1,4 @@
-#flyaround
+# Flyaround
 =========
 
 Le projet d'apprentissage Symfony 3.4 développé durant la formation au sein de la Wild Code School
